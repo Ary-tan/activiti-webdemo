@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a id="target">创建模板</a>
+</body>
+<script src="editor-app/libs/jquery_1.11.0/jquery.min.js"></script>
+<script>
+  $(function () {
+    var list = {};
+    $("#target").click(function(){
+      $.ajax({
+        type: "POST",
+        url: "http://10.10.101.12:8089/models/newModel",
+        success: function (result) {
+          window.location.href = "activiti.html?modelId=" + result;
+        }
+      });
+    });
+  });
+</script>
+</html>
